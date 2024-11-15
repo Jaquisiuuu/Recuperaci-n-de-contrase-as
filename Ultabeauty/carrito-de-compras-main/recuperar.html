@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperación de Contraseña - UltaBeauty</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background-color: #c9d6ff;
+            background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .modal {
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+            padding: 20px;
+            width: 400px;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        .modal h2 {
+            color: #a82d2d;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .modal h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .modal input[type="email"], .modal input[type="text"] {
+            background-color: #eee;
+            border: none;
+            margin: 8px 0;
+            padding: 10px 15px;
+            font-size: 13px;
+            border-radius: 8px;
+            width: 100%;
+            outline: none;
+        }
+
+        .modal p {
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 0.3px;
+            margin: 10px 0;
+        }
+
+        .modal button {
+            background-color: #a82d2d;
+            color: #fff;
+            padding: 10px 45px;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        #errorMessage {
+            font-size: 12px;
+            color: red;
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        #codeField {
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Modal de Recuperación de Contraseña -->
+    <div id="recoveryModal" class="modal" style="display: block;">
+        <h2>UltaBeauty</h2>
+        <h3>Restablecer Contraseña</h3>
+        <input type="email" id="emailInput" placeholder="ejemplo@correo.com">
+        <p>Introduzca su dirección de correo electrónico para recibir instrucciones.</p>
+        <button onclick="sendVerificationCode()">Enviar Código</button>
+        <p id="errorMessage"></p>
+        
+        <!-- Campo para el código de verificación -->
+        <div id="codeField">
+            <input type="text" id="codeInput" placeholder="Ingrese el código de verificación">
+            <button onclick="verifyCode()">Verificar Código</button>
+        </div>
+    </div>
+
+    <script src="recuperar.js"></script> 
+</body>
+</html>
